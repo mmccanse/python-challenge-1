@@ -227,6 +227,8 @@ Item_quants = [int(value['Item_quant']) for key, value in choice_dict.items()]
 #print(Item_names)
 #print(Item_prices)
 #print(Item_quants)
+
+#consulted Chat GPT on how to use the zip funtion to multiply items together from two lists.
 each_cost = [a * b for a, b in zip(Item_prices,Item_quants)]
 #print("each cost is ",each_cost)
 #print(type(each_cost))
@@ -237,10 +239,12 @@ total_price = sum(each_cost)
 
 # %%
 #convert each_cost list to list of tuples. Doing this to be able to add the tuple key, value pairs into the order_list dictionary for printing
+#consulted Chat GPT for guidance on how to do this.
 updated_costs = [('cost', cost) for index, cost in enumerate(each_cost)]
 #print(updated_costs)
 
 #add updated_costs items to order_list
+#consulted Chat GPT for guidance on how to do this.
 for order, (cost_label, cost_value) in zip(order_list, updated_costs): 
     order[cost_label] = cost_value
     
@@ -248,6 +252,7 @@ for order, (cost_label, cost_value) in zip(order_list, updated_costs):
 
 # %%
 #convert cost items in order_list and total_price to strings to have 2 spaces after the decimal
+#consulted Chat GPT for guidance on how to do this.
 for order in order_list:
     # Convert to float, format, and keep as string
     order['Item_price'] = f"{float(order['Item_price']):.2f}"
